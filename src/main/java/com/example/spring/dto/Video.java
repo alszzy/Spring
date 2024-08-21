@@ -10,10 +10,17 @@ public class Video {
     private LocalDateTime publishedTime;
     private String thumbnail;
     private List<String> tagList;
+    private String tag;
+    public void setTag(String tag){
+        this.tag = tag;
+    }
 
     private List<Episode> playList;
     private String category;
     private String type;
+
+    public Video() {
+    }
 
     public Video(String title, String description, String bv, LocalDateTime publishedTime, String thumbnail, List<String> tagList, List<Episode> playList, String category, String type) {
         this.title = title;
@@ -68,7 +75,10 @@ public class Video {
     }
 
     public List<String> getTagList() {
-        return tagList;
+        String tag = this.tag;
+        if (tag == null)
+            return List.of();
+        return List.of(tag.split("_"));
     }
 
     public void setTagList(List<String> tagList) {
@@ -97,5 +107,20 @@ public class Video {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    @Override
+    public String toString() {
+        return "Video{" +
+                "title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", bv='" + bv + '\'' +
+                ", publishedTime=" + publishedTime +
+                ", thumbnail='" + thumbnail + '\'' +
+                ", tagList=" + tagList +
+                ", playList=" + playList +
+                ", category='" + category + '\'' +
+                ", type='" + type + '\'' +
+                '}';
     }
 }

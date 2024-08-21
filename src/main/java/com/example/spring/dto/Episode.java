@@ -8,6 +8,9 @@ public class Episode {
     private LocalTime duration;
     private String url; //file path
 
+    public Episode() {
+    }
+
     public Episode(String id, String title, LocalTime duration, String url) {
         this.id = id;
         this.title = title;
